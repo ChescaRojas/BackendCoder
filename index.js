@@ -14,7 +14,20 @@ app.get('/', (req, res) => {
     res.send(usuarioUno.getFullName());
     //, usuarioUno.countPets(), usuarioUno.getBookNames()
 });
-
+app.get('/segunda', (req, res) => {
+    const file = new Container("Archivo");
+    const allCalls = async () => {
+      const callOne = await file.save({title: 'titulo', price: 123, thumbnail: 'url de foto'})
+      const callTwo = await file.getById(2)
+      const callThree = await file.getAll()
+      await file.deleteById(4)
+      //await file.deleteAll()
+      res.send(`callOne: ${callOne} 
+        callTwo: {${callTwo?.id}, ${callTwo?.title}, ${callTwo?.price} ${callTwo?.thumbnail}}
+        callThree: [${callThree.map(obj => {return `{${obj['id']} ${obj['title']} ${obj['price']} ${obj['thumbnail']}}`} )}]`)
+    }
+    allCalls()
+  });
 //Comienza a escuchar el puerto definido 3000
 app.listen(time, ()=>{
     console.log('Listen on the time 3000');
