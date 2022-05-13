@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express();
-const Usuario = './entregas/primeraEntrega'; 
+const Usuario = require('./src/models/Usuario'); 
+const Container = require('./src/models/Container'); 
 const libros = [{nombre: 'The notebook', autor: 'Nicholas Sparks'}, {nombre: 'After', autor: 'Anna Todd'}]
 const mascotas = ['gato', 'perro']
 
