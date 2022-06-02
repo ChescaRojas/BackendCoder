@@ -18,13 +18,28 @@ class Container {
             console.log(err)
         }
         
-        return id;
+        return object;
     }
     async getById(id) {
         let object = {}
         try {
             const data = await fs.promises.readFile(this.name, 'utf8')
             object = data ? [...JSON.parse(data)][id] : [];
+        }
+        catch (err) {
+            console.log(err)
+        }
+        
+        return object;
+
+    }
+    async getRandom() {
+        let object = {}
+        try {
+            const data = await fs.promises.readFile(this.name, 'utf8');
+            let products = data ? [...JSON.parse(data)] : [];
+            let randomIndex = Math.floor(Math.random() * products.length);
+            object = products[randomIndex];
         }
         catch (err) {
             console.log(err)
@@ -45,6 +60,24 @@ class Container {
             fs.writeFile(this.name, JSON.stringify(newList), function (err) {
                 if (err) throw err;
             })
+        }
+        catch (err) {
+            console.log(err)
+        }
+    }
+    async update(object) {
+        try {
+            const data = await fs.promises.readFile(this.name, 'utf8')
+            let list = data ? [...JSON.parse(data)] : [];
+            let objectToUpdate = list[object.id]
+            if(objectToUpdate){
+                objectToUpdate = 
+                fs.writeFile(this.name, JSON.stringify(newList), function (err) {
+                    if (err) throw err;
+                })
+            }
+            else
+                throw ('error: Producto no encontrado')
         }
         catch (err) {
             console.log(err)
