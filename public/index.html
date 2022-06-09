@@ -2,13 +2,25 @@
   <head>
     <meta charset="utf-8">
     <title>Mi aplicación</title>
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="main.js"></script>
+    
   </head>
   <body>
-    <form action="/api/productos" method="POST">
-      <input type="text" placeholder="Nombre Producto" name="name"/> <br/>
-      <input type="number" placeholder="Precio" name="price"/><br/>
-      <input type="text" placeholder="URL de la foto" name="image"/><br/>
+    <div id="renderElement"></div>
+    <form onsubmit="return addProduct()">
+      <input type="text" placeholder="Nombre Producto" id="name"/> <br/>
+      <input type="number" placeholder="Precio" id="price"/><br/>
+      <input type="text" placeholder="URL de la foto" id="image"/><br/>
       <input type="submit" value="subir producto"/>
     </form>
+    <div id="messages"></div>
+    <form onsubmit="return sendMessage()">
+      <input type="text" id="author"/> 
+      <input type="text" id="text"/>
+      <button type="submit">Enter</button>
+    </form>
+    <a href="/products">Productos</a>
   </body>
 </html>

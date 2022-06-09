@@ -1,1 +1,0 @@
-[{"title":"Pantalon","price":"500","thumbnail":"https://www.google.com/search?q=pantalones&rlz=1C1ALOY_esAR998AR998&sxsrf=ALiCzsYNhwMVz8P-EYRJW3hoKNVIl5m-Jg:1654189201529&source=lnms&tbm=isch&sa=X&ved=2ahUKEwi3gv79no_4AhWRs5UCHW2iC7YQ_AUoAXoECAEQAw&biw=1707&bih=793&dpr=1.13#imgrc=GcinsrkghtOAiM","id":0},{"title":"Camisa","price":"5698","thumbnail":"prueba prueba","id":1}]
